@@ -1,0 +1,4 @@
+like(X,Y) :-
+	man(X),
+	woman(Y),
+	beautiful(Y).

@@ -1,0 +1,2 @@
+strong(bosse).
+kind(bosse).

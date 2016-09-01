@@ -1,0 +1,2 @@
+strong(bettan).
+rich(bettan).

@@ -1,0 +1,2 @@
+beautiful(nisse).
+rich(nisse).

@@ -1,0 +1,2 @@
+strong(peter).
+beautiful(peter).

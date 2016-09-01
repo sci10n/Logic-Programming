@@ -1,0 +1,13 @@
+beautiful(nisse).
+beautiful(peter).
+beautiful(ulrika).
+kind(bosse).
+man(bosse).
+man(peter).
+rich(bettan).
+rich(nisse).
+strong(bettan).
+strong(bosse).
+strong(peter).
+woman(bettan).
+woman(ulrika).
