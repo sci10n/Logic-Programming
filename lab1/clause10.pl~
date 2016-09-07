@@ -1,4 +1,4 @@
-%First we define all facts
+%First we define all facts, all predicates has to be defined in order because prolog is super bad at parsing
 beautiful(nisse).
 beautiful(peter).
 beautiful(ulrika).
@@ -29,7 +29,7 @@ like(ulrika,X) :-
 like(nisse,X) :-
 	woman(X),
 	like(X,nisse).
-%Happy requires the like predicate
+%Happe requires like
 happy(X) :-
 	man(X),
 	like(X,Y),
