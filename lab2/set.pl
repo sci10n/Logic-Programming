@@ -31,9 +31,9 @@ intersection([L|LeftSet], [R|RightSet], SetIntersection) :-
     intersection(LeftSet, [R|RightSet], SetIntersection).
 
 % power_set/2 - Produces the power set of a predefined set.
-power_set([], [[]]). % Per the definition it has a zero set too.
-power_set(Set, PowerSet) :- setof(X, subseq0(Set, X), PowerSet).
-% Select a set of all possible subsequences 'Set' -> 'PowerSet'.
+power_set([], [[]]). % Per the definition it has the zero set as well.
+power_set(Set, PowerSet) :- set(Set), setof(X, subseq0(Set, X), PowerSet).
+% Select a set of all possible subsequences 'Set' producing a 'PowerSet'.
 
 % -------------------------
 % ------EXAMPLE QUERY------
