@@ -1,4 +1,6 @@
-%First we define all facts
+% These are all facts.
+% Def: X's properties.
+%
 beautiful(nisse).
 beautiful(peter).
 beautiful(ulrika).
@@ -13,30 +15,72 @@ man(peter).
 man(nisse).
 woman(ulrika).
 woman(bettan).
-%Like doesnt require any other non-fact predicates
+
+% like is mostly independent,
+% except for the facts above.
+% Definition:  X does like Y.
+%
 like(X,Y) :-
-	man(X),
-	woman(Y),
-	beautiful(Y).
+    man(X),
+    woman(Y),
+    beautiful(Y).
 like(urlika,X) :-
-	man(X),
-	rich(X),
-	kind(X).
+    man(X),
+    rich(X),
+    kind(X).
 like(ulrika,X) :-
-	man(X),
-	beautiful(X),
-	strong(X).
+    man(X),
+    beautiful(X),
+    strong(X).
 like(nisse,X) :-
-	woman(X),
-	like(X,nisse).
-%Happy requires the like predicate
+    woman(X),
+    like(X,nisse).
+
+% happy depends on like, so
+% it needs to be put below.
+% Definition: X is happy!!!
+%
 happy(X) :-
-	man(X),
-	like(X,Y),
-	woman(Y),
-	like(Y,X).
+    man(X),
+    like(X,Y),
+    woman(Y),
+    like(Y,X).
 happy(X) :-
-	woman(X),
-	like(X,Y),
-	man(Y),
-	like(Y,X).
+    woman(X),
+    like(X,Y),
+    man(Y),
+    like(Y,X).
+
+% -------------------------
+% ------EXAMPLE QUERY------
+% -------------------------
+%
+% Who is happy?
+% -------------
+%
+% ?- happy(X).
+% X = peter ? ;
+% X = ulrika ? ;
+% no
+%
+% Who likes who?
+% --------------
+%
+% ?- like(X, Y).
+% X = bosse,
+% Y = ulrika ? ;
+% X = peter,
+% Y = ulrika ? ;
+% X = nisse,
+% Y = ulrika ? ;
+% X = ulrika,
+% Y = peter ? ;
+% no
+%
+% Who likes Ulrika and how many of them are there?
+% ------------------------------------------------
+%
+% ?- findall(X, like(X, ulrika), S), length(S, L).
+% S = [bosse,peter,nisse],
+% L = 3 ? ;
+% no
