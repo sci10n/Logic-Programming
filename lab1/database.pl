@@ -27,11 +27,13 @@ like(X,Y) :-
 like(urlika,X) :-
     man(X),
     rich(X),
-    kind(X).
+    kind(X),
+    like(X,ulrika).
 like(ulrika,X) :-
     man(X),
     beautiful(X),
-    strong(X).
+    strong(X),
+    like(X,ulrika).
 like(nisse,X) :-
     woman(X),
     like(X,nisse).
