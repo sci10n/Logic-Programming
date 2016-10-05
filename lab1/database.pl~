@@ -68,8 +68,6 @@ happy(X) :-
 % ?- happy(X).
 % X = peter ? ;
 % X = ulrika ? ;
-% X = nisse ;
-% X = bettan 
 % no
 %
 % Who likes who?
@@ -77,13 +75,13 @@ happy(X) :-
 %
 % ?- like(X, Y).
 % X = bosse,
-% Y = ulrika ;
+% Y = ulrika ? ;
 % X = peter,
-% Y = ulrika ;
+% Y = ulrika ? ;
 % X = nisse,
-% Y = ulrika ;
+% Y = ulrika ? ;
 % X = ulrika,
-% Y = peter ;
+% Y = peter ? ;
 % no
 %
 % Who likes Ulrika and how many of them are there?

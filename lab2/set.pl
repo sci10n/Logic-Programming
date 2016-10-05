@@ -1,18 +1,30 @@
+:- include(sorting).
 :- use_module(library(lists)). % subseq0.
 % set/1 - Are the given elements one set?
 set([]). % Empty set is trivially sorted.
-% 'Sort' also removes duplicates, for set.
-set(Elements) :- sort(Elements, Elements).
+set([H]).
+set([H1,H2|T]) :-
+  H1 @< H2,
+  set([H2|T]).
 
 % union/3 - A set union of two sets.
-union([], [], []). % Obviously.
-union(A, [], A). union([], B, B).
-union(LeftSet, RightSet, SetUnion) :-
-    set(LeftSet), set(RightSet),
-    % Append sets (which are lists).
-    append(LeftSet, RightSet, Merge),
-    % Sort the unordered 'Merge'ed.
-    sort(Merge, SetUnion).
+union([], [], []).
+union(A,[],A) :-
+  set(A).
+union([],B,B) :-
+  set(B).
+union([A|LeftSet], [B|RightSet], [A|SetUnion]) :-
+  union(LeftSet,[B|RightSet],SetUnion),
+  A @< B,
+    set([A|LeftSet]), set([B|RightSet]).
+union([A|LeftSet], [B|RightSet], [B|SetUnion]) :-
+  union([A|LeftSet],RightSet,SetUnion),
+  A @> B,
+    set([A|LeftSet]), set([B|RightSet]).
+union([A|LeftSet], [A|RightSet], [A|SetUnion]) :-
+  union(LeftSet,RightSet,SetUnion),
+    set([A|LeftSet]), set([A|RightSet]).
+
 
 % intersection/3 - Simple set intersection.
 intersection([], [], []). % Obviously... Again...
@@ -30,6 +42,14 @@ intersection([L|LeftSet], [R|RightSet], SetIntersection) :-
     set([L|LeftSet]), set([R|RightSet]), % Only on sets.
     intersection(LeftSet, [R|RightSet], SetIntersection).
 
+
+subset(Set,Set) :-
+  set(Set).
+subset([H|Set],Set) :-
+  set([H|Set]).
+subset([H|Set],SubSet) :-
+  set([H|Set]),
+  subset(Set,SubSet).
 % power_set/2 - Produces the power set of a predefined set.
 power_set([], [[]]). % Per the definition it has the zero set as well.
 power_set(Set, PowerSet) :- set(Set), setof(X, subseq0(Set, X), PowerSet).
@@ -81,4 +101,16 @@ power_set(Set, PowerSet) :- set(Set), setof(X, subseq0(Set, X), PowerSet).
 % -------------------------------------------
 % ?- power_set([a, b, c], S).
 % S = [[],[a],[a,b],[a,b,c],[a,c],[b],[b,c],[c]] ? ;
+% no
+%
+% Weird behaviour when the last element match?
+% --------------------------------------------
+%
+% (Theory: there are multiple clauses which match
+% two lists with same last element).
+%
+% ?- intersection([a, b, c,e], [c, d, e], S).
+% S = [c, e] ;
+% S = [c, e] ;
+% S = [c, e] ;
 % no
