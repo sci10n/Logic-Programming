@@ -22,8 +22,9 @@ union([A|LeftSet], [A|RightSet], [A|SetUnion]) :-
     set([A|LeftSet]), set([A|RightSet]).
 
 % intersection/3 - Simple set intersection.
-intersection([], [], []). % Obviously... Again...
-intersection(_, [], []). intersection([], _, []).
+intersection([], [], []). % The base case...
+intersection(A, [], []) :- set(A), A \== [].
+intersection([], B, []) :- set(B), B \== [].
 intersection([L|LeftSet], [R|RightSet], SetIntersection) :-
     intersection([L|LeftSet], RightSet, SetIntersection),
     set([L|LeftSet]), set([R|RightSet]), % Only on sets.
