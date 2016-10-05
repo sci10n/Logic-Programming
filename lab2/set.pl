@@ -1,59 +1,45 @@
-:- include(sorting).
-:- use_module(library(lists)). % subseq0.
 % set/1 - Are the given elements one set?
 set([]). % Empty set is trivially sorted.
-set([H]).
-set([H1,H2|T]) :-
-  H1 @< H2,
-  set([H2|T]).
+set([_]). % Handle the single edge case.
+set([H1,H2|T]) :- H1 @< H2, set([H2|T]).
 
-% union/3 - A set union of two sets.
-union([], [], []).
-union(A,[],A) :-
-  set(A).
-union([],B,B) :-
-  set(B).
+% union/3 - Union between two given sets.
+union([], [], []). % Handle the trivial case.
+% The clauses below will expand A, and B to also:
+% A = [] and B = [] which will lead to duplicate.
+union(A,[],A) :- set(A), A \== []. % See above...
+union([],B,B) :- set(B), B \== []. % See above...
 union([A|LeftSet], [B|RightSet], [A|SetUnion]) :-
-  union(LeftSet,[B|RightSet],SetUnion),
-  A @< B,
-    set([A|LeftSet]), set([B|RightSet]).
+    union(LeftSet, [B|RightSet], SetUnion),
+    set([A|LeftSet]), set([B|RightSet]),
+    A @< B.
 union([A|LeftSet], [B|RightSet], [B|SetUnion]) :-
-  union([A|LeftSet],RightSet,SetUnion),
-  A @> B,
-    set([A|LeftSet]), set([B|RightSet]).
+    union([A|LeftSet], RightSet, SetUnion),
+    set([A|LeftSet]), set([B|RightSet]),
+    A @> B.
 union([A|LeftSet], [A|RightSet], [A|SetUnion]) :-
-  union(LeftSet,RightSet,SetUnion),
+    union(LeftSet, RightSet, SetUnion),
     set([A|LeftSet]), set([A|RightSet]).
-
 
 % intersection/3 - Simple set intersection.
 intersection([], [], []). % Obviously... Again...
-intersection(_, [], []). intersection([], _, []). % Needed??!
-intersection([L|LeftSet], [R|RightSet], [L|SetIntersection]) :-
-    L == R, % Must exist in both LeftSet and the RightSet.
-    set([L|LeftSet]), set([R|RightSet]), % Only on sets.
-    intersection(LeftSet, RightSet, SetIntersection).
+intersection(_, [], []). intersection([], _, []).
 intersection([L|LeftSet], [R|RightSet], SetIntersection) :-
-    L @> R, % There are no larger elements in R (invariant).
+    intersection([L|LeftSet], RightSet, SetIntersection),
     set([L|LeftSet]), set([R|RightSet]), % Only on sets.
-    intersection([L|LeftSet], RightSet, SetIntersection).
+    L @> R.
 intersection([L|LeftSet], [R|RightSet], SetIntersection) :-
-    L @< R, % There are no larger elements in L (invariant).
+    intersection(LeftSet, [R|RightSet], SetIntersection),
     set([L|LeftSet]), set([R|RightSet]), % Only on sets.
-    intersection(LeftSet, [R|RightSet], SetIntersection).
+    L @< R.
+intersection([L|LeftSet], [L|RightSet], [L|SetIntersection]) :-
+    intersection(LeftSet, RightSet, SetIntersection),
+    set([L|LeftSet]), set([L|RightSet]).
 
-
-subset(Set,Set) :-
-  set(Set).
-subset([H|Set],Set) :-
-  set([H|Set]).
-subset([H|Set],SubSet) :-
-  set([H|Set]),
-  subset(Set,SubSet).
-% power_set/2 - Produces the power set of a predefined set.
-power_set([], [[]]). % Per the definition it has the zero set as well.
-power_set(Set, PowerSet) :- set(Set), setof(X, subseq0(Set, X), PowerSet).
-% Select a set of all possible subsequences 'Set' producing a 'PowerSet'.
+% power_set/2 - Produces the power set of one predefined set.
+power_set([], [[]]). % Per the definition of the power set it has the zero set as well.
+power_set(Set, PowerSet) :- findall(X, (union(X, Y, Set), intersection(X, Y, [])), PowerSet).
+% Find all combinations we can arrange X, Y via the union, but also removing any duplicates.
 
 % -------------------------
 % ------EXAMPLE QUERY------
@@ -100,17 +86,5 @@ power_set(Set, PowerSet) :- set(Set), setof(X, subseq0(Set, X), PowerSet).
 % What is the power set of the set [a, b, c]?
 % -------------------------------------------
 % ?- power_set([a, b, c], S).
-% S = [[],[a],[a,b],[a,b,c],[a,c],[b],[b,c],[c]] ? ;
-% no
-%
-% Weird behaviour when the last element match?
-% --------------------------------------------
-%
-% (Theory: there are multiple clauses which match
-% two lists with same last element).
-%
-% ?- intersection([a, b, c,e], [c, d, e], S).
-% S = [c, e] ;
-% S = [c, e] ;
-% S = [c, e] ;
+% S = [[a,b,c],[],[a],[a,b],[a,c],[b,c],[b],[c]]
 % no
