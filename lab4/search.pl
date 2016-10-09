@@ -44,7 +44,6 @@ action(R,L,Rr,[Mr1,Mr2|L]) :-
 	member(Mr2,Rtr),
 	extract(Mr2,Rtr,Rr),
 	allowed_state(Rr,[Mr1,Mr2|L]).
-action([],[],[],[]).
 action(R,L,[Ml|R],Lr) :-
 	member(Ml,L),
 	extract(Ml,L,Lr),
