@@ -13,7 +13,9 @@ bool(true) --> [true].
 bool(false) --> [false].
 bool(E1 == E2) --> expr(E1),[=],expr(E2).
 bool(E1 > E2) --> expr(E1),[>],expr(E2).
+bool(E1 >= E2) --> expr(E1),[>=],expr(E2).
 bool(E1 < E2) --> expr(E1),[<],expr(E2).
+bool(E1 =< E2) --> expr(E1),[=<],expr(E2).
 
 pwer(-X) --> [-],pwer(X).
 pwer(X) --> expr(X).
