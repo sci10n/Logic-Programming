@@ -1,0 +1,774 @@
+%!PS-Adobe-3.0
+%%Title: search.pl
+%%For: mares480
+%%Creator: VIM - Vi IMproved 7.4 (2013 Aug 10)
+%%CreationDate: Wed Oct 12 18:56:43 2016
+%%DocumentData: Clean8Bit
+%%Orientation: Portrait
+%%Pages: (atend)
+%%PageOrder: Ascend
+%%BoundingBox: 59 49 564 800
+%%DocumentMedia: A4 595 842 0 () ()
+%%DocumentNeededResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%DocumentSuppliedResources: procset VIM-Prolog 1.4 1
+%%+ encoding VIM-latin1 1.0 0
+%%Requirements: duplex collate color
+%%EndComments
+%%BeginDefaults
+%%PageResources: font Courier
+%%+ font Courier-Bold
+%%+ font Courier-Oblique
+%%+ font Courier-BoldOblique
+%%PageMedia: A4
+%%EndDefaults
+%%BeginProlog
+%%BeginResource: procset VIM-Prolog
+%%BeginDocument: /usr/share/vim/vim74/print/prolog.ps
+%!PS-Adobe-3.0 Resource-ProcSet
+%%Title: VIM-Prolog
+%%Version: 1.4 1
+%%EndComments
+% Editing of this file is NOT RECOMMENDED.  You run a very good risk of causing
+% all PostScript printing from VIM failing if you do.  PostScript is not called
+% a write-only language for nothing!
+/packedarray where not{userdict begin/setpacking/pop load def/currentpacking
+false def end}{pop}ifelse/CP currentpacking def true setpacking
+/bd{bind def}bind def/ld{load def}bd/ed{exch def}bd/d/def ld
+/db{dict begin}bd/cde{currentdict end}bd
+/T true d/F false d
+/SO null d/sv{/SO save d}bd/re{SO restore}bd
+/L2 systemdict/languagelevel 2 copy known{get exec}{pop pop 1}ifelse 2 ge d
+/m/moveto ld/s/show ld /ms{m s}bd /g/setgray ld/r/setrgbcolor ld/sp{showpage}bd
+/gs/gsave ld/gr/grestore ld/cp/currentpoint ld
+/ul{gs UW setlinewidth cp UO add 2 copy newpath m 3 1 roll add exch lineto
+stroke gr}bd
+/bg{gs r cp BO add 4 -2 roll rectfill gr}bd
+/sl{90 rotate 0 exch translate}bd
+L2{
+/sspd{mark exch{setpagedevice}stopped cleartomark}bd
+/nc{1 db/NumCopies ed cde sspd}bd
+/sps{3 db/Orientation ed[3 1 roll]/PageSize ed/ImagingBBox null d cde sspd}bd
+/dt{2 db/Tumble ed/Duplex ed cde sspd}bd
+/c{1 db/Collate ed cde sspd}bd
+}{
+/nc{/#copies ed}bd
+/sps{statusdict/setpage get exec}bd
+/dt{statusdict/settumble 2 copy known{get exec}{pop pop pop}ifelse
+statusdict/setduplexmode 2 copy known{get exec}{pop pop pop}ifelse}bd
+/c{pop}bd
+}ifelse
+/ffs{findfont exch scalefont d}bd/sf{setfont}bd
+/ref{1 db findfont dup maxlength dict/NFD ed{exch dup/FID ne{exch NFD 3 1 roll
+put}{pop pop}ifelse}forall/Encoding findresource dup length 256 eq{NFD/Encoding
+3 -1 roll put}{pop}ifelse NFD dup/FontType get 3 ne{/CharStrings}{/CharProcs}
+ifelse 2 copy known{2 copy get dup maxlength dict copy[/questiondown/space]{2
+copy known{2 copy get 2 index/.notdef 3 -1 roll put pop exit}if pop}forall put
+}{pop pop}ifelse dup NFD/FontName 3 -1 roll put NFD definefont pop end}bd
+CP setpacking
+(\004)cvn{}bd
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%BeginResource: encoding VIM-latin1
+%%BeginDocument: /usr/share/vim/vim74/print/latin1.ps
+%!PS-Adobe-3.0 Resource-Encoding
+%%Title: VIM-latin1
+%%Version: 1.0 0
+%%EndComments
+/VIM-latin1[
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclam /quotedbl /numbersign /dollar /percent /ampersand /quotesingle
+/parenleft /parenright /asterisk /plus /comma /minus /period /slash
+/zero /one /two /three /four /five /six /seven
+/eight /nine /colon /semicolon /less /equal /greater /question
+/at /A /B /C /D /E /F /G
+/H /I /J /K /L /M /N /O
+/P /Q /R /S /T /U /V /W
+/X /Y /Z /bracketleft /backslash /bracketright /asciicircum /underscore
+/grave /a /b /c /d /e /f /g
+/h /i /j /k /l /m /n /o
+/p /q /r /s /t /u /v /w
+/x /y /z /braceleft /bar /braceright /asciitilde /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/space /exclamdown /cent /sterling /currency /yen /brokenbar /section
+/dieresis /copyright /ordfeminine /guillemotleft /logicalnot /hyphen /registered /macron
+/degree /plusminus /twosuperior /threesuperior /acute /mu /paragraph /periodcentered
+/cedilla /onesuperior /ordmasculine /guillemotright /onequarter /onehalf /threequarters /questiondown
+/Agrave /Aacute /Acircumflex /Atilde /Adieresis /Aring /AE /Ccedilla
+/Egrave /Eacute /Ecircumflex /Edieresis /Igrave /Iacute /Icircumflex /Idieresis
+/Eth /Ntilde /Ograve /Oacute /Ocircumflex /Otilde /Odieresis /multiply
+/Oslash /Ugrave /Uacute /Ucircumflex /Udieresis /Yacute /Thorn /germandbls
+/agrave /aacute /acircumflex /atilde /adieresis /aring /ae /ccedilla
+/egrave /eacute /ecircumflex /edieresis /igrave /iacute /icircumflex /idieresis
+/eth /ntilde /ograve /oacute /ocircumflex /otilde /odieresis /divide
+/oslash /ugrave /uacute /ucircumflex /udieresis /yacute /thorn /ydieresis]
+/Encoding defineresource pop
+% vim:ff=unix:
+%%EOF
+%%EndDocument
+%%EndResource
+%%EndProlog
+%%BeginSetup
+595 842 0 sps
+1 nc
+T F dt
+T c
+%%IncludeResource: font Courier
+/_F0 /VIM-latin1 /Courier ref
+/F0 10 /_F0 ffs
+%%IncludeResource: font Courier-Bold
+/_F1 /VIM-latin1 /Courier-Bold ref
+/F1 10 /_F1 ffs
+%%IncludeResource: font Courier-Oblique
+/_F2 /VIM-latin1 /Courier-Oblique ref
+/F2 10 /_F2 ffs
+%%IncludeResource: font Courier-BoldOblique
+/_F3 /VIM-latin1 /Courier-BoldOblique ref
+/F3 10 /_F3 ffs
+/UO -1 d
+/UW 0.5 d
+/BO -2.5 d
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+0 g
+(search.pl[+]                                                                  Sida 1)59.5 792.4 ms
+F0 sf
+1 0 1 r
+(:-)59.5 772.4 ms
+0 g
+( )s
+1 1 0 r
+(set_prolog_flag)s
+0 g
+(\(toplevel_print_options, [quoted\()s
+1 1 0 r
+(true)s
+0 g
+(\),numbervars\()s
+1 1 0 r
+(true)s
+0 g
+(\),portrayed\()s
+1 1 0 r
+(true)59.5 762.4 ms
+0 g
+(\),max_depth\()s
+1 0 0 r
+(20)s
+0 g
+(\)]\).)s
+1 0 0 r
+(start)59.5 742.4 ms
+0 g
+(\(state\()s
+1 0 0 r
+(3)s
+0 g
+(:)s
+1 0 0 r
+(3)s
+0 g
+(, )s
+1 0 0 r
+(0)s
+0 g
+(:)s
+1 0 0 r
+(0)s
+0 g
+(\)\).)s
+1 0 0 r
+(goal)59.5 732.4 ms
+0 g
+(\(state\()s
+1 0 0 r
+(0)s
+0 g
+(:)s
+1 0 0 r
+(0)s
+0 g
+(, )s
+1 0 0 r
+(3)s
+0 g
+(:)s
+1 0 0 r
+(3)s
+0 g
+(\)\).)s
+0 0 1 r
+(%Checks if element is not a member of a given list)59.5 712.4 ms
+1 0 0 r
+(nonm)59.5 702.4 ms
+0 g
+(\( _, [] \).)s
+1 0 0 r
+(nonm)59.5 692.4 ms
+0 g
+(\( E, [H|T] \) )s
+1 0 1 r
+(:-)s
+0 g
+(        dif\( E, H \), nonm\( E, T \).)59.5 682.4 ms
+0 0 1 r
+(%Depth-First search start clause.)59.5 662.4 ms
+1 0 0 r
+(df_search)59.5 652.4 ms
+0 g
+(\(Path\) )s
+1 0 1 r
+(:-)s
+0 g
+(        start\(S0\),)59.5 642.4 ms
+(        df_search\([S0],Path\).)59.5 632.4 ms
+0 0 1 r
+(%Depth-First search goal clause)59.5 612.4 ms
+1 0 0 r
+(df_search)59.5 602.4 ms
+0 g
+(\([S|Visited],[S|Visited]\) )s
+1 0 1 r
+(:-)s
+0 g
+(        goal\(S\).)59.5 592.4 ms
+0 0 1 r
+(%Depth-First search general clause)59.5 572.4 ms
+1 0 0 r
+(df_search)59.5 562.4 ms
+0 g
+(\([S1|Visited], Path\) )s
+1 0 1 r
+(:-)s
+0 g
+(        action\(S1,S2\),)59.5 552.4 ms
+(        )59.5 542.4 ms
+0 0 1 r
+(%Make sure we doesn't visit a already visited state)s
+0 g
+(        nonm\(S2,[S1|Visited]\),)59.5 532.4 ms
+(        df_search\([S2,S1|Visited], Path\).)59.5 522.4 ms
+0 0 1 r
+(%Breath-First search start clause)59.5 502.4 ms
+1 0 0 r
+(bf_search)59.5 492.4 ms
+0 g
+(\(Path\) )s
+1 0 1 r
+(:-)s
+0 g
+(        start\(S0\),)59.5 482.4 ms
+(        bf_search\([[S0]],Path\).)59.5 472.4 ms
+0 0 1 r
+(%Breath-First search goal clause)59.5 462.4 ms
+1 0 0 r
+(bf_search)59.5 452.4 ms
+0 g
+(\([[S|Path]|_], [S|Path]\) )s
+1 0 1 r
+(:-)s
+0 g
+(        goal\(S\).)59.5 442.4 ms
+0 0 1 r
+(%Breath-First search general clause)59.5 432.4 ms
+1 0 0 r
+(bf_search)59.5 422.4 ms
+0 g
+(\([[S1|Path]|Partials], FinalPath\) )s
+1 0 1 r
+(:-)s
+0 g
+(        )59.5 412.4 ms
+0 0 1 r
+(%nonm added to prevent looping)s
+0 g
+(        )59.5 402.4 ms
+1 1 0 r
+(findall)s
+0 g
+(\(S2,\(action\(S1,S2\),nonm\(S2,[S1|Path]\)\), NewStates\),)s
+(        expand\([S1|Path], NewStates, NewPaths\),)59.5 392.4 ms
+(        )59.5 382.4 ms
+1 1 0 r
+(append)s
+0 g
+(\(Partials, NewPaths, NewPartials\),)s
+(        bf_search\(NewPartials,FinalPath\).)59.5 372.4 ms
+0 0 1 r
+(%Generate all new paths from a given node)59.5 362.4 ms
+1 0 0 r
+(expand)59.5 352.4 ms
+0 g
+(\(L1,L2,L3\) )s
+1 0 1 r
+(:-)s
+0 g
+(        )59.5 342.4 ms
+1 1 0 r
+(findall)s
+0 g
+(\([X|L1], member\(X,L2\), L3\).)s
+0 0 1 r
+(%Make sure missionaries are same or outnumber the canibals)59.5 332.4 ms
+1 0 0 r
+(allowed_bank)59.5 322.4 ms
+0 g
+(\(M:C\) )s
+1 0 1 r
+(:-)s
+0 g
+(        M )59.5 312.4 ms
+1 1 0 r
+(>=)s
+0 g
+( )s
+1 0 0 r
+(0)s
+0 g
+(,)s
+(        C )59.5 302.4 ms
+1 1 0 r
+(>=)s
+0 g
+( )s
+1 0 0 r
+(0)s
+0 g
+(,)s
+(        M )59.5 292.4 ms
+1 1 0 r
+(>=)s
+0 g
+( C.)s
+0 0 1 r
+(%Extra cause to allow for banks with only canibals)59.5 282.4 ms
+1 0 0 r
+(allowed_bank)59.5 272.4 ms
+0 g
+(\()s
+1 0 0 r
+(0)s
+0 g
+(:C\) )s
+1 0 1 r
+(:-)s
+0 g
+(        C )59.5 262.4 ms
+1 1 0 r
+(>)s
+0 g
+( )s
+1 0 0 r
+(0)s
+0 g
+(.)s
+0 0 1 r
+(%Helper for allowed_banks)59.5 252.4 ms
+1 0 0 r
+(allowed_state)59.5 242.4 ms
+0 g
+(\(L,R\) )s
+1 0 1 r
+(:-)s
+0 g
+(        allowed_bank\(L\),)59.5 232.4 ms
+(        allowed_bank\(R\).)59.5 222.4 ms
+0 0 1 r
+(% action - move one M from left to right)59.5 192.4 ms
+1 0 0 r
+(action)59.5 182.4 ms
+0 g
+(\(state\(LM1:LC1, RM1:RC1\), state\(LM2:LC1,RM2:RC1\)\) )s
+1 0 1 r
+(:-)s
+0 g
+(        LM2 )59.5 172.4 ms
+1 1 0 r
+(is)s
+0 g
+( LM1 - )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        RM2 )59.5 162.4 ms
+1 1 0 r
+(is)s
+0 g
+( RM1 + )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        allowed_state\(LM2:LC1, RM2:RC1\).)59.5 152.4 ms
+0 0 1 r
+(% action - move one C from left to right)59.5 142.4 ms
+1 0 0 r
+(action)59.5 132.4 ms
+0 g
+(\(state\(LM1:LC1, RM1:RC1\), state\(LM1:LC2,RM1:RC2\)\) )s
+1 0 1 r
+(:-)s
+0 g
+(        LC2 )59.5 122.4 ms
+1 1 0 r
+(is)s
+0 g
+( LC1 - )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        RC2 )59.5 112.4 ms
+1 1 0 r
+(is)s
+0 g
+( RC1 + )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        allowed_state\(LM1:LC2, RM1:RC2\).)59.5 102.4 ms
+0 0 1 r
+(% action - move one M from right to left)59.5 92.4 ms
+1 0 0 r
+(action)59.5 82.4 ms
+0 g
+(\(state\(LM1:LC1, RM1:RC1\), state\(LM2:LC1,RM2:RC1\)\) )s
+1 0 1 r
+(:-)s
+0 g
+(        RM2 )59.5 72.4 ms
+1 1 0 r
+(is)s
+0 g
+( RM1 - )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        LM2 )59.5 62.4 ms
+1 1 0 r
+(is)s
+0 g
+( LM1 + )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        allowed_state\(LM2:LC1,RM2:RC1\).)59.5 52.4 ms
+re sp
+%%PageTrailer
+%%Page: 2 2
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(search.pl[+]                                                                  Sida 2)59.5 792.4 ms
+F0 sf
+0 0 1 r
+(% action - move one C from left to right)59.5 772.4 ms
+1 0 0 r
+(action)59.5 762.4 ms
+0 g
+(\(state\(LM1:LC1, RM1:RC1\), state\(LM1:LC2,RM1:RC2\)\) )s
+1 0 1 r
+(:-)s
+0 g
+(        RC2 )59.5 752.4 ms
+1 1 0 r
+(is)s
+0 g
+( RC1 - )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        LC2 )59.5 742.4 ms
+1 1 0 r
+(is)s
+0 g
+( LC1 + )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        allowed_state\(LM1:LC2,RM1:RC2\).)59.5 732.4 ms
+0 0 1 r
+(% action - move one M from left to right)59.5 712.4 ms
+1 0 0 r
+(action)59.5 702.4 ms
+0 g
+(\(state\(LM1:LC1, RM1:RC1\), state\(LM2:LC1,RM2:RC1\)\) )s
+1 0 1 r
+(:-)s
+0 g
+(        LM2 )59.5 692.4 ms
+1 1 0 r
+(is)s
+0 g
+( LM1 - )s
+1 0 0 r
+(2)s
+0 g
+(,)s
+(        RM2 )59.5 682.4 ms
+1 1 0 r
+(is)s
+0 g
+( RM1 + )s
+1 0 0 r
+(2)s
+0 g
+(,)s
+(        allowed_state\(LM2:LC1, RM2:RC1\).)59.5 672.4 ms
+0 0 1 r
+(% action - move one C from left to right)59.5 662.4 ms
+1 0 0 r
+(action)59.5 652.4 ms
+0 g
+(\(state\(LM1:LC1, RM1:RC1\), state\(LM1:LC2,RM1:RC2\)\) )s
+1 0 1 r
+(:-)s
+0 g
+(        LC2 )59.5 642.4 ms
+1 1 0 r
+(is)s
+0 g
+( LC1 - )s
+1 0 0 r
+(2)s
+0 g
+(,)s
+(        RC2 )59.5 632.4 ms
+1 1 0 r
+(is)s
+0 g
+( RC1 + )s
+1 0 0 r
+(2)s
+0 g
+(,)s
+(        allowed_state\(LM1:LC2, RM1:RC2\).)59.5 622.4 ms
+0 0 1 r
+(% action - move one M from right to left)59.5 612.4 ms
+1 0 0 r
+(action)59.5 602.4 ms
+0 g
+(\(state\(LM1:LC1, RM1:RC1\), state\(LM2:LC1,RM2:RC1\)\) )s
+1 0 1 r
+(:-)s
+0 g
+(        RM2 )59.5 592.4 ms
+1 1 0 r
+(is)s
+0 g
+( RM1 - )s
+1 0 0 r
+(2)s
+0 g
+(,)s
+(        LM2 )59.5 582.4 ms
+1 1 0 r
+(is)s
+0 g
+( LM1 + )s
+1 0 0 r
+(2)s
+0 g
+(,)s
+(        allowed_state\(LM2:LC1,RM2:RC1\).)59.5 572.4 ms
+0 0 1 r
+(% action - move one C from left to right)59.5 562.4 ms
+1 0 0 r
+(action)59.5 552.4 ms
+0 g
+(\(state\(LM1:LC1, RM1:RC1\), state\(LM1:LC2,RM1:RC2\)\) )s
+1 0 1 r
+(:-)s
+0 g
+(        RC2 )59.5 542.4 ms
+1 1 0 r
+(is)s
+0 g
+( RC1 - )s
+1 0 0 r
+(2)s
+0 g
+(,)s
+(        LC2 )59.5 532.4 ms
+1 1 0 r
+(is)s
+0 g
+( LC1 + )s
+1 0 0 r
+(2)s
+0 g
+(,)s
+(        allowed_state\(LM1:LC2,RM1:RC2\).)59.5 522.4 ms
+0 0 1 r
+(% action - move one C from left to right)59.5 502.4 ms
+1 0 0 r
+(action)59.5 492.4 ms
+0 g
+(\(state\(LM1:LC1, RM1:RC1\), state\(LM2:LC2,RM2:RC2\)\) )s
+1 0 1 r
+(:-)s
+0 g
+(        RC2 )59.5 482.4 ms
+1 1 0 r
+(is)s
+0 g
+( RC1 - )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        LC2 )59.5 472.4 ms
+1 1 0 r
+(is)s
+0 g
+( LC1 + )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        RM2 )59.5 462.4 ms
+1 1 0 r
+(is)s
+0 g
+( RM1 - )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        LM2 )59.5 452.4 ms
+1 1 0 r
+(is)s
+0 g
+( LM1 + )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        allowed_state\(LM2:LC2,RM2:RC2\).)59.5 442.4 ms
+1 0 0 r
+(action)59.5 432.4 ms
+0 g
+(\(state\(LM1:LC1, RM1:RC1\), state\(LM2:LC2,RM2:RC2\)\) )s
+1 0 1 r
+(:-)s
+0 g
+(        RC2 )59.5 422.4 ms
+1 1 0 r
+(is)s
+0 g
+( RC1 + )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        LC2 )59.5 412.4 ms
+1 1 0 r
+(is)s
+0 g
+( LC1 - )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        RM2 )59.5 402.4 ms
+1 1 0 r
+(is)s
+0 g
+( RM1 + )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        LM2 )59.5 392.4 ms
+1 1 0 r
+(is)s
+0 g
+( LM1 - )s
+1 0 0 r
+(1)s
+0 g
+(,)s
+(        allowed_state\(LM2:LC2,RM2:RC2\).)59.5 382.4 ms
+0 0 1 r
+(% In total there's 65 loop-free solutions, as can be viewed with the command findall)59.5 352.4 ms
+(\(X,df_search\(X\),P\),length\(P,L\).)59.5 342.4 ms
+(% Example  runs)59.5 322.4 ms
+(%)59.5 312.4 ms
+(% df_search\(Path\).)59.5 302.4 ms
+(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(0:2,3:1\),state\(2:2,1:1\),state\(3:2,0:1\))59.5 292.4 ms
+(,state\(3:3,0:0\)] ;)59.5 282.4 ms
+(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(0:1,3:2\),state\(0:2,3:1\),state\(2:2,1:1\))59.5 272.4 ms
+(,state\(3:2,0:1\),state\(3:3,0:0\)] ;)59.5 262.4 ms
+(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(0:3,3:0\),state\(0:2,3:1\),state\(2:2,1:1\))59.5 252.4 ms
+(,state\(3:2,0:1\),state\(3:3,0:0\)] ;)59.5 242.4 ms
+(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(0:1,3:2\),state\(0:3,3:0\),state\(0:2,3:1\))59.5 232.4 ms
+(,state\(2:2,1:1\),state\(3:2,0:1\),state\(3:3,0:0\)] ;)59.5 222.4 ms
+(% Path = [state\(0:0,3:3\),state\(0:2,3:1\),state\(2:2,1:1\),state\(3:2,0:1\),state\(3:3,0:0\))59.5 212.4 ms
+(] ...)59.5 202.4 ms
+(% ?- bf_search\(Path\).)59.5 172.4 ms
+(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(3:1,0:2\),state\(3:3,0:0\)] ;)59.5 162.4 ms
+(% Path = [state\(0:0,3:3\),state\(0:2,3:1\),state\(2:2,1:1\),state\(3:3,0:0\)] ;)59.5 152.4 ms
+(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(2:2,1:1\),state\(3:3,0:0\)] ;)59.5 142.4 ms
+(% Path = [state\(0:0,3:3\),state\(0:2,3:1\),state\(2:2,1:1\),state\(3:2,0:1\),state\(3:3,0:0\))59.5 132.4 ms
+(] ;)59.5 122.4 ms
+(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(2:2,1:1\),state\(3:2,0:1\),state\(3:3,0:0\))59.5 112.4 ms
+(] ;)59.5 102.4 ms
+(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(3:1,0:2\),state\(3:2,0:1\),state\(3:3,0:0\))59.5 92.4 ms
+(] ;)59.5 82.4 ms
+(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(1:1,2:2\),state\(3:1,0:2\),state\(3:3,0:0\))59.5 72.4 ms
+(] ;)59.5 62.4 ms
+(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(0:2,3:1\),state\(2:2,1:1\),state\(3:3,0:0\))59.5 52.4 ms
+re sp
+%%PageTrailer
+%%Page: 3 3
+%%BeginPageSetup
+sv
+0 g
+F0 sf
+%%EndPageSetup
+F1 sf
+(search.pl[+]                                                                  Sida 3)59.5 792.4 ms
+F0 sf
+0 0 1 r
+(] ;)59.5 772.4 ms
+(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(1:1,2:2\),state\(2:2,1:1\),state\(3:3,0:0\))59.5 762.4 ms
+(] ;)59.5 752.4 ms
+(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(0:2,3:1\),state\(2:2,1:1\),state\(3:2,0:1\))59.5 742.4 ms
+(,state\(3:3,0:0\)] ;)59.5 732.4 ms
+(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(1:1,2:2\),state\(2:2,1:1\),state\(3:2,0:1\))59.5 722.4 ms
+(,state\(3:3,0:0\)] ;)59.5 712.4 ms
+(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(1:1,2:2\),state\(3:1,0:2\),state\(3:2,0:1\))59.5 702.4 ms
+(,state\(3:3,0:0\)] ;)59.5 692.4 ms
+(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(3:1,0:2\),state\(3:0,0:3\),state\(3:2,0:1\))59.5 682.4 ms
+(,state\(3:3,0:0\)] ;)59.5 672.4 ms
+re sp
+%%PageTrailer
+%%Trailer
+%%Pages: 3
+%%EOF
+
