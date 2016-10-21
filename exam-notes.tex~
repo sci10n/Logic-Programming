@@ -39,8 +39,6 @@ for every ground instance of a clause, if each body atom is in S then the head m
 \end{equation}
 assume \( split(t,t_1,t_2) \epsilon S \) means \( |l_1|-|l_2| \epsilon \{ 0,1 \} \) meaning \( |[h|t_2]  - |t_1| = 1+ | t_2| - |t_1| \epsilon \{1-0,1-1\} \)
 
-\textbf{SLD}
-
 \textbf{SLDNF - forest}
 Do regular SLD - tree but break into a new tree for each negation.
 
@@ -73,7 +71,7 @@ Insert the queries to test and check if the logic holds true. if it's true comp(
 
 \textbf{Extra bits}
 \begin{itemize}
-\item Soundness means all computed answers are logical consequences of a program.
-\item Completeness means that all logical consequences of a program are is a computed answer.
+\item Soundnes means all computed answers are logical consequences of a program.
+\item Completenes means that all logical consequences of a program are is a computed answer.
 \end{itemize}
 \end{document}

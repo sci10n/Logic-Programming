@@ -1,8 +1,8 @@
 :- set_prolog_flag(toplevel_print_options, [quoted(true),numbervars(true),portrayed(true),max_depth(20)]).
 
-start(state(3:3, 0:0)).
-goal(state(0:0, 3:3)).
-
+start(state(3:3,boat_left, 0:0)).
+goal(state(0:0,boat_right, 3:3)).
+    
 %Checks if element is not a member of a given list
 nonm( _, [] ).
 nonm( E, [H|T] ) :-
@@ -56,55 +56,55 @@ allowed_state(L,R) :-
 
 
 % action - move one M from left to right
-action(state(LM1:LC1, RM1:RC1), state(LM2:LC1,RM2:RC1)) :-
+action(state(LM1:LC1, boat_left, RM1:RC1), state(LM2:LC1,boat_right,RM2:RC1)) :-
 	LM2 is LM1 - 1,
 	RM2 is RM1 + 1,
 	allowed_state(LM2:LC1, RM2:RC1).
 % action - move one C from left to right
-action(state(LM1:LC1, RM1:RC1), state(LM1:LC2,RM1:RC2)) :-
+action(state(LM1:LC1,boat_left, RM1:RC1), state(LM1:LC2, boat_right,RM1:RC2)) :-
 	LC2 is LC1 - 1,
 	RC2 is RC1 + 1,
 	allowed_state(LM1:LC2, RM1:RC2).
 % action - move one M from right to left
-action(state(LM1:LC1, RM1:RC1), state(LM2:LC1,RM2:RC1)) :-
+action(state(LM1:LC1,boat_right, RM1:RC1), state(LM2:LC1,boat_left,RM2:RC1)) :-
 	RM2 is RM1 - 1,
 	LM2 is LM1 + 1,
 	allowed_state(LM2:LC1,RM2:RC1).
-% action - move one C from left to right
-action(state(LM1:LC1, RM1:RC1), state(LM1:LC2,RM1:RC2)) :-
+% action - move one C from right to left
+action(state(LM1:LC1,boat_right, RM1:RC1), state(LM1:LC2,boat_left,RM1:RC2)) :-
 	RC2 is RC1 - 1,
 	LC2 is LC1 + 1,
 	allowed_state(LM1:LC2,RM1:RC2).
 
 % action - move one M from left to right
-action(state(LM1:LC1, RM1:RC1), state(LM2:LC1,RM2:RC1)) :-
+action(state(LM1:LC1,boat_left, RM1:RC1), state(LM2:LC1,boat_right,RM2:RC1)) :-
 	LM2 is LM1 - 2,
 	RM2 is RM1 + 2,
 	allowed_state(LM2:LC1, RM2:RC1).
 % action - move one C from left to right
-action(state(LM1:LC1, RM1:RC1), state(LM1:LC2,RM1:RC2)) :-
+action(state(LM1:LC1,boat_left,RM1:RC1), state(LM1:LC2,boat_right,RM1:RC2)) :-
 	LC2 is LC1 - 2,
 	RC2 is RC1 + 2,
 	allowed_state(LM1:LC2, RM1:RC2).
 % action - move one M from right to left
-action(state(LM1:LC1, RM1:RC1), state(LM2:LC1,RM2:RC1)) :-
+action(state(LM1:LC1,boat_right, RM1:RC1), state(LM2:LC1,boat_left,RM2:RC1)) :-
 	RM2 is RM1 - 2,
 	LM2 is LM1 + 2,
 	allowed_state(LM2:LC1,RM2:RC1).
-% action - move one C from left to right
-action(state(LM1:LC1, RM1:RC1), state(LM1:LC2,RM1:RC2)) :-
+% action - move one C from right to left
+action(state(LM1:LC1,boat_right,RM1:RC1), state(LM1:LC2,boat_left,RM1:RC2)) :-
 	RC2 is RC1 - 2,
 	LC2 is LC1 + 2,
 	allowed_state(LM1:LC2,RM1:RC2).
 
 % action - move one C from left to right
-action(state(LM1:LC1, RM1:RC1), state(LM2:LC2,RM2:RC2)) :-
+action(state(LM1:LC1,boat_right, RM1:RC1), state(LM2:LC2,boat_left,RM2:RC2)) :-
 	RC2 is RC1 - 1,
 	LC2 is LC1 + 1,
 	RM2 is RM1 - 1,
 	LM2 is LM1 + 1,
 	allowed_state(LM2:LC2,RM2:RC2).
-action(state(LM1:LC1, RM1:RC1), state(LM2:LC2,RM2:RC2)) :-
+action(state(LM1:LC1,boat_left, RM1:RC1), state(LM2:LC2,boat_right,RM2:RC2)) :-
 	RC2 is RC1 + 1,
 	LC2 is LC1 - 1,
 	RM2 is RM1 + 1,
@@ -112,29 +112,20 @@ action(state(LM1:LC1, RM1:RC1), state(LM2:LC2,RM2:RC2)) :-
 	allowed_state(LM2:LC2,RM2:RC2).
 
 
-% In total there's 65 loop-free solutions, as can be viewed with the command findall(X,df_search(X),P),length(P,L).
+% In total there's 4 loop-free solutions, as can be viewed with the command findall(X,df_search(X),P),length(P,L).
 
 % Example  runs
 %
 % df_search(Path).
-% Path = [state(0:0,3:3),state(0:1,3:2),state(0:2,3:1),state(2:2,1:1),state(3:2,0:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(1:1,2:2),state(0:1,3:2),state(0:2,3:1),state(2:2,1:1),state(3:2,0:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(0:1,3:2),state(0:3,3:0),state(0:2,3:1),state(2:2,1:1),state(3:2,0:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(1:1,2:2),state(0:1,3:2),state(0:3,3:0),state(0:2,3:1),state(2:2,1:1),state(3:2,0:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(0:2,3:1),state(2:2,1:1),state(3:2,0:1),state(3:3,0:0)] ...
-
-
-% ?- bf_search(Path).
-% Path = [state(0:0,3:3),state(1:1,2:2),state(3:1,0:2),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(0:2,3:1),state(2:2,1:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(1:1,2:2),state(2:2,1:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(0:2,3:1),state(2:2,1:1),state(3:2,0:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(1:1,2:2),state(2:2,1:1),state(3:2,0:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(1:1,2:2),state(3:1,0:2),state(3:2,0:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(0:1,3:2),state(1:1,2:2),state(3:1,0:2),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(0:1,3:2),state(0:2,3:1),state(2:2,1:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(0:1,3:2),state(1:1,2:2),state(2:2,1:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(0:1,3:2),state(0:2,3:1),state(2:2,1:1),state(3:2,0:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(0:1,3:2),state(1:1,2:2),state(2:2,1:1),state(3:2,0:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(0:1,3:2),state(1:1,2:2),state(3:1,0:2),state(3:2,0:1),state(3:3,0:0)] ;
-% Path = [state(0:0,3:3),state(1:1,2:2),state(3:1,0:2),state(3:0,0:3),state(3:2,0:1),state(3:3,0:0)] ;
+%Path = [state(0:0, boat_right, 3:3), state(1:1, boat_left, 2:2), state(0:1, boat_right, 3:2), state(0:3, boat_left, 3:0), state(0:2, boat_right, 3:1), state(2:2, boat_left, 1:1), state(1:1, boat_right, 2:2), state(3:1, boat_left, 0:2), state(3:0, boat_right, 0:3), state(3:2, boat_left, 0:1), state(3:1, boat_right, 0:2), state(3:3, boat_left, 0:0)] ;
+%Path = [state(0:0, boat_right, 3:3), state(0:2, boat_left, 3:1), state(0:1, boat_right, 3:2), state(0:3, boat_left, 3:0), state(0:2, boat_right, 3:1), state(2:2, boat_left, 1:1), state(1:1, boat_right, 2:2), state(3:1, boat_left, 0:2), state(3:0, boat_right, 0:3), state(3:2, boat_left, 0:1), state(3:1, boat_right, 0:2), state(3:3, boat_left, 0:0)] ;
+%Path = [state(0:0, boat_right, 3:3), state(1:1, boat_left, 2:2), state(0:1, boat_right, 3:2), state(0:3, boat_left, 3:0), state(0:2, boat_right, 3:1), state(2:2, boat_left, 1:1), state(1:1, boat_right, 2:2), state(3:1, boat_left, 0:2), state(3:0, boat_right, 0:3), state(3:2, boat_left, 0:1), state(2:2, boat_right, 1:1), state(3:3, boat_left, 0:0)] ;
+%Path = [state(0:0, boat_right, 3:3), state(0:2, boat_left, 3:1), state(0:1, boat_right, 3:2), state(0:3, boat_left, 3:0), state(0:2, boat_right, 3:1), state(2:2, boat_left, 1:1), state(1:1, boat_right, 2:2), state(3:1, boat_left, 0:2), state(3:0, boat_right, 0:3), state(3:2, boat_left, 0:1), state(2:2, boat_right, 1:1), state(3:3, boat_left, 0:0)] ;
+%no.
+%
+%bf_search(Path).
+%Path = [state(0:0, boat_right, 3:3), state(1:1, boat_left, 2:2), state(0:1, boat_right, 3:2), state(0:3, boat_left, 3:0), state(0:2, boat_right, 3:1), state(2:2, boat_left, 1:1), state(1:1, boat_right, 2:2), state(3:1, boat_left, 0:2), state(3:0, boat_right, 0:3), state(3:2, boat_left, 0:1), state(3:1, boat_right, 0:2), state(3:3, boat_left, 0:0)] ;
+%Path = [state(0:0, boat_right, 3:3), state(0:2, boat_left, 3:1), state(0:1, boat_right, 3:2), state(0:3, boat_left, 3:0), state(0:2, boat_right, 3:1), state(2:2, boat_left, 1:1), state(1:1, boat_right, 2:2), state(3:1, boat_left, 0:2), state(3:0, boat_right, 0:3), state(3:2, boat_left, 0:1), state(3:1, boat_right, 0:2), state(3:3, boat_left, 0:0)] ;
+%Path = [state(0:0, boat_right, 3:3), state(1:1, boat_left, 2:2), state(0:1, boat_right, 3:2), state(0:3, boat_left, 3:0), state(0:2, boat_right, 3:1), state(2:2, boat_left, 1:1), state(1:1, boat_right, 2:2), state(3:1, boat_left, 0:2), state(3:0, boat_right, 0:3), state(3:2, boat_left, 0:1), state(2:2, boat_right, 1:1), state(3:3, boat_left, 0:0)] ;
+%Path = [state(0:0, boat_right, 3:3), state(0:2, boat_left, 3:1), state(0:1, boat_right, 3:2), state(0:3, boat_left, 3:0), state(0:2, boat_right, 3:1), state(2:2, boat_left, 1:1), state(1:1, boat_right, 2:2), state(3:1, boat_left, 0:2), state(3:0, boat_right, 0:3), state(3:2, boat_left, 0:1), state(2:2, boat_right, 1:1), state(3:3, boat_left, 0:0)] ;
+%no.

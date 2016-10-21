@@ -2,7 +2,7 @@
 %%Title: search.pl
 %%For: mares480
 %%Creator: VIM - Vi IMproved 7.4 (2013 Aug 10)
-%%CreationDate: Wed Oct 12 18:56:43 2016
+%%CreationDate: Tue Oct 18 15:21:45 2016
 %%DocumentData: Clean8Bit
 %%Orientation: Portrait
 %%Pages: (atend)
@@ -146,8 +146,7 @@ sv
 F0 sf
 %%EndPageSetup
 F1 sf
-0 g
-(search.pl[+]                                                                  Sida 1)59.5 792.4 ms
+(search.pl                                                                     Sida 1)59.5 792.4 ms
 F0 sf
 1 0 1 r
 (:-)59.5 772.4 ms
@@ -184,7 +183,7 @@ F0 sf
 1 0 0 r
 (3)s
 0 g
-(, )s
+(,boat_left, )s
 1 0 0 r
 (0)s
 0 g
@@ -204,7 +203,7 @@ F0 sf
 1 0 0 r
 (0)s
 0 g
-(, )s
+(,boat_right, )s
 1 0 0 r
 (3)s
 0 g
@@ -213,6 +212,7 @@ F0 sf
 (3)s
 0 g
 (\)\).)s
+(    )59.5 722.4 ms
 0 0 1 r
 (%Checks if element is not a member of a given list)59.5 712.4 ms
 1 0 0 r
@@ -394,7 +394,7 @@ F0 sf
 1 0 0 r
 (action)59.5 182.4 ms
 0 g
-(\(state\(LM1:LC1, RM1:RC1\), state\(LM2:LC1,RM2:RC1\)\) )s
+(\(state\(LM1:LC1, boat_left, RM1:RC1\), state\(LM2:LC1,boat_right,RM2:RC1\)\) )s
 1 0 1 r
 (:-)s
 0 g
@@ -422,7 +422,7 @@ F0 sf
 1 0 0 r
 (action)59.5 132.4 ms
 0 g
-(\(state\(LM1:LC1, RM1:RC1\), state\(LM1:LC2,RM1:RC2\)\) )s
+(\(state\(LM1:LC1,boat_left, RM1:RC1\), state\(LM1:LC2, boat_right,RM1:RC2\)\) )s
 1 0 1 r
 (:-)s
 0 g
@@ -450,7 +450,7 @@ F0 sf
 1 0 0 r
 (action)59.5 82.4 ms
 0 g
-(\(state\(LM1:LC1, RM1:RC1\), state\(LM2:LC1,RM2:RC1\)\) )s
+(\(state\(LM1:LC1,boat_right, RM1:RC1\), state\(LM2:LC1,boat_left,RM2:RC1\)\) )s
 1 0 1 r
 (:-)s
 0 g
@@ -482,14 +482,14 @@ sv
 F0 sf
 %%EndPageSetup
 F1 sf
-(search.pl[+]                                                                  Sida 2)59.5 792.4 ms
+(search.pl                                                                     Sida 2)59.5 792.4 ms
 F0 sf
 0 0 1 r
-(% action - move one C from left to right)59.5 772.4 ms
+(% action - move one C from right to left)59.5 772.4 ms
 1 0 0 r
 (action)59.5 762.4 ms
 0 g
-(\(state\(LM1:LC1, RM1:RC1\), state\(LM1:LC2,RM1:RC2\)\) )s
+(\(state\(LM1:LC1,boat_right, RM1:RC1\), state\(LM1:LC2,boat_left,RM1:RC2\)\) )s
 1 0 1 r
 (:-)s
 0 g
@@ -517,7 +517,7 @@ F0 sf
 1 0 0 r
 (action)59.5 702.4 ms
 0 g
-(\(state\(LM1:LC1, RM1:RC1\), state\(LM2:LC1,RM2:RC1\)\) )s
+(\(state\(LM1:LC1,boat_left, RM1:RC1\), state\(LM2:LC1,boat_right,RM2:RC1\)\) )s
 1 0 1 r
 (:-)s
 0 g
@@ -545,7 +545,7 @@ F0 sf
 1 0 0 r
 (action)59.5 652.4 ms
 0 g
-(\(state\(LM1:LC1, RM1:RC1\), state\(LM1:LC2,RM1:RC2\)\) )s
+(\(state\(LM1:LC1,boat_left,RM1:RC1\), state\(LM1:LC2,boat_right,RM1:RC2\)\) )s
 1 0 1 r
 (:-)s
 0 g
@@ -573,7 +573,7 @@ F0 sf
 1 0 0 r
 (action)59.5 602.4 ms
 0 g
-(\(state\(LM1:LC1, RM1:RC1\), state\(LM2:LC1,RM2:RC1\)\) )s
+(\(state\(LM1:LC1,boat_right, RM1:RC1\), state\(LM2:LC1,boat_left,RM2:RC1\)\) )s
 1 0 1 r
 (:-)s
 0 g
@@ -597,11 +597,11 @@ F0 sf
 (,)s
 (        allowed_state\(LM2:LC1,RM2:RC1\).)59.5 572.4 ms
 0 0 1 r
-(% action - move one C from left to right)59.5 562.4 ms
+(% action - move one C from right to left)59.5 562.4 ms
 1 0 0 r
 (action)59.5 552.4 ms
 0 g
-(\(state\(LM1:LC1, RM1:RC1\), state\(LM1:LC2,RM1:RC2\)\) )s
+(\(state\(LM1:LC1,boat_right,RM1:RC1\), state\(LM1:LC2,boat_left,RM1:RC2\)\) )s
 1 0 1 r
 (:-)s
 0 g
@@ -629,7 +629,7 @@ F0 sf
 1 0 0 r
 (action)59.5 492.4 ms
 0 g
-(\(state\(LM1:LC1, RM1:RC1\), state\(LM2:LC2,RM2:RC2\)\) )s
+(\(state\(LM1:LC1,boat_right, RM1:RC1\), state\(LM2:LC2,boat_left,RM2:RC2\)\) )s
 1 0 1 r
 (:-)s
 0 g
@@ -673,7 +673,7 @@ F0 sf
 1 0 0 r
 (action)59.5 432.4 ms
 0 g
-(\(state\(LM1:LC1, RM1:RC1\), state\(LM2:LC2,RM2:RC2\)\) )s
+(\(state\(LM1:LC1,boat_left, RM1:RC1\), state\(LM2:LC2,boat_right,RM2:RC2\)\) )s
 1 0 1 r
 (:-)s
 0 g
@@ -715,34 +715,36 @@ F0 sf
 (,)s
 (        allowed_state\(LM2:LC2,RM2:RC2\).)59.5 382.4 ms
 0 0 1 r
-(% In total there's 65 loop-free solutions, as can be viewed with the command findall)59.5 352.4 ms
-(\(X,df_search\(X\),P\),length\(P,L\).)59.5 342.4 ms
+(% In total there's 4 loop-free solutions, as can be viewed with the command findall\()59.5 352.4 ms
+(X,df_search\(X\),P\),length\(P,L\).)59.5 342.4 ms
 (% Example  runs)59.5 322.4 ms
 (%)59.5 312.4 ms
 (% df_search\(Path\).)59.5 302.4 ms
-(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(0:2,3:1\),state\(2:2,1:1\),state\(3:2,0:1\))59.5 292.4 ms
-(,state\(3:3,0:0\)] ;)59.5 282.4 ms
-(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(0:1,3:2\),state\(0:2,3:1\),state\(2:2,1:1\))59.5 272.4 ms
-(,state\(3:2,0:1\),state\(3:3,0:0\)] ;)59.5 262.4 ms
-(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(0:3,3:0\),state\(0:2,3:1\),state\(2:2,1:1\))59.5 252.4 ms
-(,state\(3:2,0:1\),state\(3:3,0:0\)] ;)59.5 242.4 ms
-(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(0:1,3:2\),state\(0:3,3:0\),state\(0:2,3:1\))59.5 232.4 ms
-(,state\(2:2,1:1\),state\(3:2,0:1\),state\(3:3,0:0\)] ;)59.5 222.4 ms
-(% Path = [state\(0:0,3:3\),state\(0:2,3:1\),state\(2:2,1:1\),state\(3:2,0:1\),state\(3:3,0:0\))59.5 212.4 ms
-(] ...)59.5 202.4 ms
-(% ?- bf_search\(Path\).)59.5 172.4 ms
-(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(3:1,0:2\),state\(3:3,0:0\)] ;)59.5 162.4 ms
-(% Path = [state\(0:0,3:3\),state\(0:2,3:1\),state\(2:2,1:1\),state\(3:3,0:0\)] ;)59.5 152.4 ms
-(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(2:2,1:1\),state\(3:3,0:0\)] ;)59.5 142.4 ms
-(% Path = [state\(0:0,3:3\),state\(0:2,3:1\),state\(2:2,1:1\),state\(3:2,0:1\),state\(3:3,0:0\))59.5 132.4 ms
-(] ;)59.5 122.4 ms
-(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(2:2,1:1\),state\(3:2,0:1\),state\(3:3,0:0\))59.5 112.4 ms
-(] ;)59.5 102.4 ms
-(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(3:1,0:2\),state\(3:2,0:1\),state\(3:3,0:0\))59.5 92.4 ms
-(] ;)59.5 82.4 ms
-(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(1:1,2:2\),state\(3:1,0:2\),state\(3:3,0:0\))59.5 72.4 ms
-(] ;)59.5 62.4 ms
-(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(0:2,3:1\),state\(2:2,1:1\),state\(3:3,0:0\))59.5 52.4 ms
+(%Path = [state\(0:0, boat_right, 3:3\), state\(1:1, boat_left, 2:2\), state\(0:1, boat_ri)59.5 292.4 ms
+(ght, 3:2\), state\(0:3, boat_left, 3:0\), state\(0:2, boat_right, 3:1\), state\(2:2, boat_)59.5 282.4 ms
+(left, 1:1\), state\(1:1, boat_right, 2:2\), state\(3:1, boat_left, 0:2\), state\(3:0, boat)59.5 272.4 ms
+(_right, 0:3\), state\(3:2, boat_left, 0:1\), state\(3:1, boat_right, 0:2\), state\(3:3, bo)59.5 262.4 ms
+(at_left, 0:0\)] ;)59.5 252.4 ms
+(%Path = [state\(0:0, boat_right, 3:3\), state\(0:2, boat_left, 3:1\), state\(0:1, boat_ri)59.5 242.4 ms
+(ght, 3:2\), state\(0:3, boat_left, 3:0\), state\(0:2, boat_right, 3:1\), state\(2:2, boat_)59.5 232.4 ms
+(left, 1:1\), state\(1:1, boat_right, 2:2\), state\(3:1, boat_left, 0:2\), state\(3:0, boat)59.5 222.4 ms
+(_right, 0:3\), state\(3:2, boat_left, 0:1\), state\(3:1, boat_right, 0:2\), state\(3:3, bo)59.5 212.4 ms
+(at_left, 0:0\)] ;)59.5 202.4 ms
+(%Path = [state\(0:0, boat_right, 3:3\), state\(1:1, boat_left, 2:2\), state\(0:1, boat_ri)59.5 192.4 ms
+(ght, 3:2\), state\(0:3, boat_left, 3:0\), state\(0:2, boat_right, 3:1\), state\(2:2, boat_)59.5 182.4 ms
+(left, 1:1\), state\(1:1, boat_right, 2:2\), state\(3:1, boat_left, 0:2\), state\(3:0, boat)59.5 172.4 ms
+(_right, 0:3\), state\(3:2, boat_left, 0:1\), state\(2:2, boat_right, 1:1\), state\(3:3, bo)59.5 162.4 ms
+(at_left, 0:0\)] ;)59.5 152.4 ms
+(%Path = [state\(0:0, boat_right, 3:3\), state\(0:2, boat_left, 3:1\), state\(0:1, boat_ri)59.5 142.4 ms
+(ght, 3:2\), state\(0:3, boat_left, 3:0\), state\(0:2, boat_right, 3:1\), state\(2:2, boat_)59.5 132.4 ms
+(left, 1:1\), state\(1:1, boat_right, 2:2\), state\(3:1, boat_left, 0:2\), state\(3:0, boat)59.5 122.4 ms
+(_right, 0:3\), state\(3:2, boat_left, 0:1\), state\(2:2, boat_right, 1:1\), state\(3:3, bo)59.5 112.4 ms
+(at_left, 0:0\)] ;)59.5 102.4 ms
+(%no.)59.5 92.4 ms
+(%)59.5 82.4 ms
+(%bf_search\(Path\).)59.5 72.4 ms
+(%Path = [state\(0:0, boat_right, 3:3\), state\(1:1, boat_left, 2:2\), state\(0:1, boat_ri)59.5 62.4 ms
+(ght, 3:2\), state\(0:3, boat_left, 3:0\), state\(0:2, boat_right, 3:1\), state\(2:2, boat_)59.5 52.4 ms
 re sp
 %%PageTrailer
 %%Page: 3 3
@@ -752,20 +754,28 @@ sv
 F0 sf
 %%EndPageSetup
 F1 sf
-(search.pl[+]                                                                  Sida 3)59.5 792.4 ms
+(search.pl                                                                     Sida 3)59.5 792.4 ms
 F0 sf
 0 0 1 r
-(] ;)59.5 772.4 ms
-(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(1:1,2:2\),state\(2:2,1:1\),state\(3:3,0:0\))59.5 762.4 ms
-(] ;)59.5 752.4 ms
-(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(0:2,3:1\),state\(2:2,1:1\),state\(3:2,0:1\))59.5 742.4 ms
-(,state\(3:3,0:0\)] ;)59.5 732.4 ms
-(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(1:1,2:2\),state\(2:2,1:1\),state\(3:2,0:1\))59.5 722.4 ms
-(,state\(3:3,0:0\)] ;)59.5 712.4 ms
-(% Path = [state\(0:0,3:3\),state\(0:1,3:2\),state\(1:1,2:2\),state\(3:1,0:2\),state\(3:2,0:1\))59.5 702.4 ms
-(,state\(3:3,0:0\)] ;)59.5 692.4 ms
-(% Path = [state\(0:0,3:3\),state\(1:1,2:2\),state\(3:1,0:2\),state\(3:0,0:3\),state\(3:2,0:1\))59.5 682.4 ms
-(,state\(3:3,0:0\)] ;)59.5 672.4 ms
+(left, 1:1\), state\(1:1, boat_right, 2:2\), state\(3:1, boat_left, 0:2\), state\(3:0, boat)59.5 772.4 ms
+(_right, 0:3\), state\(3:2, boat_left, 0:1\), state\(3:1, boat_right, 0:2\), state\(3:3, bo)59.5 762.4 ms
+(at_left, 0:0\)] ;)59.5 752.4 ms
+(%Path = [state\(0:0, boat_right, 3:3\), state\(0:2, boat_left, 3:1\), state\(0:1, boat_ri)59.5 742.4 ms
+(ght, 3:2\), state\(0:3, boat_left, 3:0\), state\(0:2, boat_right, 3:1\), state\(2:2, boat_)59.5 732.4 ms
+(left, 1:1\), state\(1:1, boat_right, 2:2\), state\(3:1, boat_left, 0:2\), state\(3:0, boat)59.5 722.4 ms
+(_right, 0:3\), state\(3:2, boat_left, 0:1\), state\(3:1, boat_right, 0:2\), state\(3:3, bo)59.5 712.4 ms
+(at_left, 0:0\)] ;)59.5 702.4 ms
+(%Path = [state\(0:0, boat_right, 3:3\), state\(1:1, boat_left, 2:2\), state\(0:1, boat_ri)59.5 692.4 ms
+(ght, 3:2\), state\(0:3, boat_left, 3:0\), state\(0:2, boat_right, 3:1\), state\(2:2, boat_)59.5 682.4 ms
+(left, 1:1\), state\(1:1, boat_right, 2:2\), state\(3:1, boat_left, 0:2\), state\(3:0, boat)59.5 672.4 ms
+(_right, 0:3\), state\(3:2, boat_left, 0:1\), state\(2:2, boat_right, 1:1\), state\(3:3, bo)59.5 662.4 ms
+(at_left, 0:0\)] ;)59.5 652.4 ms
+(%Path = [state\(0:0, boat_right, 3:3\), state\(0:2, boat_left, 3:1\), state\(0:1, boat_ri)59.5 642.4 ms
+(ght, 3:2\), state\(0:3, boat_left, 3:0\), state\(0:2, boat_right, 3:1\), state\(2:2, boat_)59.5 632.4 ms
+(left, 1:1\), state\(1:1, boat_right, 2:2\), state\(3:1, boat_left, 0:2\), state\(3:0, boat)59.5 622.4 ms
+(_right, 0:3\), state\(3:2, boat_left, 0:1\), state\(2:2, boat_right, 1:1\), state\(3:3, bo)59.5 612.4 ms
+(at_left, 0:0\)] ;)59.5 602.4 ms
+(%no.)59.5 592.4 ms
 re sp
 %%PageTrailer
 %%Trailer
