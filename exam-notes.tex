@@ -1,0 +1,82 @@
+% -*- compile-command: "pdflatex cyd.tex"; eval: (compile-on-save-mode) -*-
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage{enumerate}
+\usepackage{hyperref}
+
+\begin{document}
+\section{Notes - TDDD08}
+
+\subsection{Unifcication in prolog}
+\begin{enumareate}
+  \item term1 and term2 are constatns then they unifiy if they are the same constant or number
+  \item term1 is a veraible and term2 is any type of term term1 unify with term2. same other way around and if both are variables the substitues to each otuerh and term1 = term2
+  \item if both are complex terms they unify if
+  \begin{enumerate}
+    \item They have the same functor and arrity,
+    \item all their arguments unify,
+    \item the varaible instantiations are compatible.
+  \end{eumerate}
+\end{enumerate}
+Prolog cheats and doesn't use a full unification algorithm for example : \( a(X) = X \) unifies becuase clause two but does in a propper algorithm. To cobat this one can specify occur checks in prolog. 
+
+\subsection{Program specification}
+
+Example:
+\begin{equation}
+  S = \{ split(l,l_1,l_2) \epsilon \mathbf{B}_{A} | l_1,l_2\ are \ lists, |l_1|-|l_2| \epsilon { 0,1} \}
+\end{equation}
+Proving S:
+for every ground instance of a clause, if each body atom is in S then the head must be in S.
+\begin{equation}
+  split(\[h|t\],\[h|t_2\],t_1) \leftarrow split(t,t1,t2)
+\end{equation}
+assume \( split(t,t_1,t_2) \epsilon S \) means \( |l_1|-|l_2| \epsilon { 0,1} \) meaning \( | \[h|t_2] | - |t_1| = 1+ | t_2| - |t_1| \epsilon {1-0,1-1}\)
+
+\subsection{SLDNF - forest}
+Do regular SLD - tree but break into a new tree for each negation. 
+
+Finitley failed means a finite tree with no answer substitutions
+Floundering means anything that doesnt't terminate.
+
+\subsection{Program completion}
+Convert clauses and add qualifiers 
+\begin{equation}
+s(L,M) \leftrightarrow \sim ns(L,M) \\ 
+ns(L,M) \leftrightarrow \exists_X m(X,L), \sim m(X,M)))
+m(X,L^{'}) \leftrightarrow \exists_L(L^{'} = [X|L]) \vee \exists_{Y,L}(L^{'} = [Y|L], m(X,L)) ))
+\end{equation}
+Insert the queries to test and check if the logic holds true. if it's false comp(program) |= \sim query.
+
+\subsection{Herbrand interpretation}
+\begin{itemize}
+  \item Universe: \( U_A \) is collection of all constants and function symbols.
+  \item Base: \( B_A = { predicate(p) | p \epsilon U_A } U {predicate2(p) | p2 \epsilon U_A}\)
+  \item Least Model: \( M_P = A \epsilon B_A | P |= A }\)
+\end{itemize}
+Example:
+\begin{equation}
+natural(zero). \\
+natural(s(N)) \leftarrow natural(N).
+\end{equation}
+Herbrand Universe: \( U_A = {zero, s(zero), s(s(zero),...}\)
+Herbrand Base: \( B_A = {natural(N) | N \epsilon U_A} \)
+\subsection{PTR}
+  \begin{itemize}
+    \item \( PTR_0 = { all ground terms with param t |t is a term}\)
+    \item \( PTR_1  = {all terms that can be proved with PTR_0} U PTR_0 \)
+    \item General proof is done with inference, prove PTR_0, PTR_1, ...,  untill general pattern then prove PTR_K and then PTR_{K - 1}. Remember to specify bounds of K.
+  \end{itemize}
+Example:
+predicates: \(natural(zero). \) and \(natural(s(N)) \leftarrow natural(N). \)
+\begin{equation}
+PTR_0 = {natural(t) | t is a term} \\
+PTR_1 = {natural(s(zero))} U PTR_0 \\
+PTR_2 = {natural(s(s(zero)))} U PTR_1 \\
+PTR_K = {natural(s^{i}(zero)) | 0 \leq i \leq K}
+PTR_{K+1} = {natural(s^{i}(zero)) | 0 \leq i \leq K+1} U PTR_0
+\end{equation}
+
+\end{document}
